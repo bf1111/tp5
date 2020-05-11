@@ -51,10 +51,16 @@ class User extends Controller
             echo show('2',"该邮箱已被注册");
             exit;
         }
-        
+
         //判断手机号是否存在
         if($this->obj->dataExist('phone',$data["phone"])){
             echo show('2',"该手机号已被注册");
+            exit;
+        }
+
+        //判断两次密码是否一致
+        if($data["password"] != $data["repassword"]){
+            echo show('2',"您输入的两次密码不一致");
             exit;
         }
 
