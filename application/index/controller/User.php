@@ -36,7 +36,7 @@ class User extends Controller
         //验证器 验证数据
         $validate = validate('User');   
         if (!$validate->scene('register')->check($data)) {
-            dump($validate->getError());
+            echo show('2',$validate->getError());
             exit;
         }
 

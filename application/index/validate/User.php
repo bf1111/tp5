@@ -19,6 +19,9 @@ class User extends Validate
             'max' => 16,
             'alphaNum'  //只能是字母和数字
         ],
+        'repassword' => [  //重复密码
+            'require'
+        ],
         'email' => [   //邮箱
             'require',
             'email'
@@ -38,6 +41,7 @@ class User extends Validate
         'password.min' => '密码最少8个字符',
         'password.max' => '密码不能超过16个字符',
         'password.alphaNum' => '密码只能包含数字和字母',
+        'repassword.require' => "请重复密码",
         'email.require' => '邮箱不能为空',
         'email.email' => '请输入正确的邮箱',
         'phone.require' => '请输入手机号',
@@ -47,6 +51,6 @@ class User extends Validate
 
     //验证场景
     protected $scene = [
-        'register' => ['name','phone','password','email']   //注册
+        'register' => ['name','phone','password','repassword','email']   //注册
     ];
 }
