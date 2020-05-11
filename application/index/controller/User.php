@@ -13,12 +13,13 @@ class User extends Controller
             'data' => $data
         ];
     }
+
     public function registerCheck()
     {
         if(!request()->isPost()){
-            echo json_encode($this->show('0',"请求不合法"));
+            echo json_encode($this->show('2',"请求不合法"));
         }else{
-            echo json_encode($this->show("1","请求合法"));
+            echo json_encode($this->show("0","请求合法"));
         }
     }
 }
