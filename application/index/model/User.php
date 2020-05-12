@@ -31,13 +31,12 @@ class User extends Model
      */
     public function dataExist($list, $data)
     {
-        $user = $this->where($list,$data)->find();
-        if($user){
+        $user = $this->where($list, $data)->find();
+        if ($user) {
             return $user;
-        }else{
+        } else {
             return "";
         }
     }
-
 
 }

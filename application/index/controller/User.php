@@ -125,10 +125,31 @@ class User extends Controller
 
             //存储session
             session("userinfo", $res, 'index');
-            echo show('0', '登录成功', ['id' => $res->id, 'name' => $res->name]);
+            echo show('10', '登录成功', ['id' => $res->id, 'name' => $res->name]);
         } else {
             echo show('2', "请求不合法");
             exit;
         }
+    }
+
+   /**
+     * 登陆后首页数据
+     *
+     * @return void
+     */
+    public function getUserInfo()
+    {
+        if (session("userinfo", "", "index")) {
+            echo show("0","",session("userinfo","","index"));
+        }else{
+            echo show("2","");
+        }
+    }
+
+    //退出登录
+    public function loginout()
+    {
+        session(null,'index');
+        show("10","loginout success");
     }
 }
