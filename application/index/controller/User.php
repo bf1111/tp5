@@ -125,7 +125,7 @@ class User extends Controller
 
             //存储session
             session("userinfo", $res, 'index');
-            echo show('10', '登录成功', ['id' => $res->id, 'name' => $res->name]);
+            echo show('0', '登录成功', ['id' => $res->id, 'name' => $res->name]);
         } else {
             echo show('2', "请求不合法");
             exit;
@@ -142,7 +142,7 @@ class User extends Controller
         if (session("userinfo", "", "index")) {
             echo show("0","",session("userinfo","","index"));
         }else{
-            echo show("2","");
+            echo show("2","用户未登录,无法获取用户信息");
         }
     }
 
@@ -150,6 +150,10 @@ class User extends Controller
     public function loginout()
     {
         session(null,'index');
-        echo show("10","loginout success");
+        if(!session("userinfo","","index")){
+            echo show("0","退出成功");
+        }else{
+            echo show("2","服务端异常");
+        }
     }
 }
