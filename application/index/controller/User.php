@@ -150,6 +150,6 @@ class User extends Controller
     public function loginout()
     {
         session(null,'index');
-        show("10","loginout success");
+        echo show("10","loginout success");
     }
 }
