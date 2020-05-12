@@ -51,6 +51,7 @@ class User extends Validate
 
     //验证场景
     protected $scene = [
-        'register' => ['name','phone','password','repassword','email']   //注册
+        'register' => ['name','phone','password','repassword','email'],   //注册
+        'login' => ['name','password']  //登录
     ];
 }

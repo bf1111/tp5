@@ -23,7 +23,7 @@ class User extends Model
     }
 
     /**
-     * 判断用户数据是否存在
+     * 判断数据库里数据是否存在
      *
      * @param [type] $list  字段名
      * @param [type] $data  判断数据
@@ -33,9 +33,11 @@ class User extends Model
     {
         $user = $this->where($list,$data)->find();
         if($user){
-            return $user->id;
+            return $user;
         }else{
             return "";
         }
     }
+
+
 }
