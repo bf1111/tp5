@@ -103,8 +103,8 @@ class User extends Controller
 
             //判断用户名是否存在
             $res = $this->obj->dataExist('name', $data["name"]);
-            if (!$res) {
-                echo show('2', "该用户名未注册");
+            if (!$res || $res->status != 1) {
+                echo show('2', "该用户名未注册或未被审核通过");
                 exit;
             }
 
@@ -125,7 +125,7 @@ class User extends Controller
 
             //存储session
             session("userinfo", $res, 'index');
-            echo show('0','登录成功',['id'=>$res->id,'name'=>$res->name]);
+            echo show('0', '登录成功', ['id' => $res->id, 'name' => $res->name]);
         } else {
             echo show('2', "请求不合法");
             exit;
