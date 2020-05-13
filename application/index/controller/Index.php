@@ -14,4 +14,15 @@ class Index
         $data = model("common/Show")->bgShow(0, $limit = 5);
         echo show("0","",$data);
     }
+
+    /**
+     * 导航栏信息显示
+     *
+     * @return void
+     */
+    public function showNavCategory()
+    {
+        $data = model("common/NavCategory")->getNavCategorys();
+        echo show(0,"",$data);
+    }
 }
