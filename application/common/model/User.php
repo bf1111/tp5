@@ -7,7 +7,7 @@ class User extends Model
 {
 
     /**
-     * 通过id更新用户信息
+     * 通过id更新用户信息..
      *
      * @param [type] $data  更新的数据
      * @param [type] $id    更新用户id
