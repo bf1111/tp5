@@ -132,7 +132,7 @@ class User extends Controller
         }
     }
 
-   /**
+    /**
      * 登陆后首页数据
      *
      * @return void
@@ -140,20 +140,20 @@ class User extends Controller
     public function getUserInfo()
     {
         if (session("userinfo", "", "index")) {
-            echo show("0","",session("userinfo","","index"));
-        }else{
-            echo show("2","用户未登录,无法获取用户信息");
+            echo show("0", "", session("userinfo", "", "index"));
+        } else {
+            echo show("2", "用户未登录,无法获取用户信息");
         }
     }
 
     //退出登录
     public function loginout()
     {
-        session(null,'index');
-        if(!session("userinfo","","index")){
-            echo show("0","退出成功");
-        }else{
-            echo show("2","服务端异常");
+        session(null, 'index');
+        if (!session("userinfo", "", "index")) {
+            echo show("0", "退出成功");
+        } else {
+            echo show("2", "服务端异常");
         }
     }
 }
