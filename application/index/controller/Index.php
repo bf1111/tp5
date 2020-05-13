@@ -23,6 +23,31 @@ class Index
     public function showNavCategory()
     {
         $data = model("common/NavCategory")->getNavCategorys();
-        echo show(0,"",$data);
+        if($data){
+            echo show(0,"",$data);
+        }else{
+            echo show(2,"数据不合法");
+        }
+    }
+
+    /**
+     * 首页导航商品显示
+     *
+     * @return void
+     */
+    public function showNavProducts()
+    {
+        if(!request()->isGet()){
+            echo show("2","请求不合法");
+            exit;
+        }
+        //接收get数据
+        $getId = input("get.id");
+        if($getId){
+            $data = model("NavProducts")->getNavProducts($getId);
+            echo show("0","",$data);
+        }else{
+            echo show("0","请求不合法");
+        }
     }
 }
