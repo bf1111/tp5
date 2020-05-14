@@ -103,7 +103,7 @@ class User extends Controller
 
             //判断用户名是否存在
             $res = $this->obj->dataExist('name', $data["name"]);
-            if (!$res || $res->status != 1) {
+            if (!$res || $res->list_status != 1) {
                 echo show('2', "该用户名未注册或未被审核通过");
                 exit;
             }

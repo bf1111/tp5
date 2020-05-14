@@ -15,7 +15,7 @@ class NavProducts extends Model
     public function getNavProducts($id, $limit = 6)
     {
         $data = [
-            'status' => 1,
+            'list_status' => 1,
             'category_id' => $id
         ];
         $order = [

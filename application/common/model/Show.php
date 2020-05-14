@@ -16,7 +16,7 @@ class Show extends Model
     public function bgShow($position, $limit = 5)
     {
         $data = [
-            'status' => 1,
+            'list_status' => 1,
             'position' => $position
         ];
         $order = [

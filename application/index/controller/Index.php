@@ -53,4 +53,10 @@ class Index extends Controller
             echo show("0", "请求不合法");
         }
     }
+
+    public function showFirstCategorys()
+    {
+        $data = model("common/Category")->getFirstCategorys();
+        echo show(0,"",$data);
+    }
 }

@@ -17,7 +17,7 @@ class User extends Model
      */
     public function registerAdd($data)
     {
-        $data['status'] = 1;
+        // $data['list_status'] = 1;
         $data['update_ip'] = $_SERVER['REMOTE_ADDR'];
         return $this->allowField(true)->save($data);
     }

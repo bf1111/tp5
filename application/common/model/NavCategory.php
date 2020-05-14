@@ -13,7 +13,7 @@ class NavCategory extends Model
     public function getNavCategorys()
     {
         $data = [
-            'status' => 1
+            'list_status' => 1
         ];
         $order = [
             'id' => 'asc'
