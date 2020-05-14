@@ -1,4 +1,5 @@
 <?php
+
 namespace app\index\controller;
 
 use think\Controller;
@@ -14,7 +15,7 @@ class Index extends Controller
     public function imageShow()
     {
         $data = model("common/Show")->bgShow(0, $limit = 5);
-        echo show("0","",$data);
+        echo show("0", "", $data);
     }
 
     /**
@@ -25,10 +26,10 @@ class Index extends Controller
     public function showNavCategory()
     {
         $data = model("common/NavCategory")->getNavCategorys();
-        if($data){
-            echo show(0,"",$data);
-        }else{
-            echo show(2,"数据不合法");
+        if ($data) {
+            echo show(0, "", $data);
+        } else {
+            echo show(2, "数据不合法");
         }
     }
 
@@ -39,17 +40,17 @@ class Index extends Controller
      */
     public function showNavProducts()
     {
-        if(!request()->isGet()){
-            echo show("2","请求不合法");
+        if (!request()->isGet()) {
+            echo show("2", "请求不合法");
             exit;
         }
         //接收get数据
         $getId = input("get.id");
-        if($getId){
+        if ($getId) {
             $data = model("NavProducts")->getNavProducts($getId);
-            echo show("0","",$data);
-        }else{
-            echo show("0","请求不合法");
+            echo show("0", "", $data);
+        } else {
+            echo show("0", "请求不合法");
         }
     }
 }

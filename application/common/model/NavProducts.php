@@ -23,4 +23,23 @@ class NavProducts extends Model
         ];
         return $this->where($data)->limit($limit)->order($order)->select();
     }
+
+
+    /**
+     * 导航商品添加
+     *
+     * @param [type] $data
+     * @return void
+     */
+    public function navProductsAdd($data)
+    {
+        $data["ctime"] = time();
+        return $this->allowField(true)->save($data);
+    }
+
+
+    public function navProductsStatus($id)
+    {
+        return $this->allowField(true)->save(["status" => 1], ["id" => $id]);
+    }
 }
